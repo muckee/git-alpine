@@ -1,8 +1,6 @@
 FROM alpine:latest
 
-# Install dependencies
-RUN apk update \
-    && apk upgrade \
-    && apk add --no-cache git
-
-ENTRYPOINT ["/src"]
+# Install git, node & npm
+RUN apk update && apk add --no-cache \
+                  openssh-client \
+                  git
